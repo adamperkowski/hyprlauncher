@@ -40,7 +40,7 @@
 
 Run the following command in your terminal:
 ```sh
-curl -fsSL https://raw.githubusercontent.com/adamperkowski/hyprlauncher/refs/heads/stable/install.sh | sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/adamperkowski/hyprlauncher/refs/heads/stable/install.sh)"
 ```
 
 ### Manual
