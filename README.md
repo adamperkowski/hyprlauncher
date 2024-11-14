@@ -36,8 +36,25 @@
 
 ## Usage
 
-1. Download the flavor of your choice from the [Releases page](https://github.com/adamperkowski/hyprlauncher/releases/latest)
-2. Move the downloaded file to `~/.config/hyprlauncher/config.json`
+### Automatic
+
+Run the following command in your terminal:
+```sh
+curl -fsSL https://raw.githubusercontent.com/adamperkowski/hyprlauncher/refs/heads/stable/install.sh | sh
+```
+
+### Manual
+
+1. Clone the repository
+```sh
+git clone https://github.com/adamperkowski/hyprlauncher.git -b stable && cd hyprlauncher
+```
+2. Copy your preferred flavor into Hyprlauncher's config directory
+```sh
+mkdir -p ~/.config/hyprlauncher
+cp configs/<flavor>.json ~/.config/hyprlauncher/config.json
+```
+Replace `<flavor>` with your preferred flavor
 
 ## 💝 Thanks to
 
