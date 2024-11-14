@@ -1,12 +1,25 @@
 #! /bin/sh
 
-# TODO: 'restore' function in case something fails
-
 RC='\033[0m'
 RED='\033[31m'
 YELLOW='\033[33m'
 GREEN='\033[32m'
 BLUE='\033[34m'
+
+restore() {
+    printf "%b\n" "\n${YELLOW}Reverting the changes...${RC}"
+    if ! $CREATED; then
+        printf "%b\n" "${YELLOW}Deleting ${RC}$CONFIG_DIR${YELLOW}...${RC}"
+        rm -rf "$CONFIG_DIR"
+    fi
+    if ! $B_CREATED; then
+        printf "%b\n" "${YELLOW}Restoring the old config...${RC}"
+        rm -f "$CONFIG_DIR/config.json"
+        mv "$CONFIG_DIR/config.json.old" "$CONFIG_DIR/config.json"
+    fi
+    printf "%b\n" "${GREEN}Done.${RC}"
+    exit 1
+}
 
 printf "%b" "Chose your preferred flavor:
  ${BLUE}1${RC} | Latte
@@ -51,16 +64,18 @@ fi
 
 if [ ! -d "$CONFIG_DIR" ]; then
     printf "%b\n" "${YELLOW}Creating ${RC}$CONFIG_DIR${YELLOW}...${RC}"
-    mkdir -p "$CONFIG_DIR"
+    mkdir -p "$CONFIG_DIR" || { printf "%b\n" "${RED}Failed to create ${RC}$CONFIG_DIR${RED}.${RC}"; restore; }
+    CREATED=false
 fi
 
 if [ -f "$CONFIG_DIR/config.json" ]; then
     printf "%b\n" "${YELLOW}Backing up the old config...${RC}"
-    cp "$CONFIG_DIR/config.json" "$CONFIG_DIR/config.json.old" || { printf "%b\n" "${RED}Failed to copy ${RC}$CONFIG_DIR/config.json${RED} to ${RC}$CONFIG_DIR/config.json.old${RED}.${RC}"; exit 1; }
-    rm -f "$CONFIG_DIR/config.json"
+    cp "$CONFIG_DIR/config.json" "$CONFIG_DIR/config.json.old" || { printf "%b\n" "${RED}Failed to copy ${RC}$CONFIG_DIR/config.json${RED} to ${RC}$CONFIG_DIR/config.json.old${RED}.${RC}"; restore; }
+    B_CREATED=false
+    rm -f "$CONFIG_DIR/config.json" || { printf "%b\n" "${RED}Failed to delete ${RC}$CONFIG_DIR/config.json${RED}.${RC}"; restore; }
 fi
 
 printf "%b\n" "${YELLOW}Downloading ${RC}$FLAVOR.json${YELLOW}...${RC}"
 URL="https://raw.githubusercontent.com/adamperkowski/hyprlauncher/refs/heads/stable/configs/$FLAVOR.json"
-curl -fsL "$URL" -o "$CONFIG_DIR/config.json" || { printf "%b\n" "${RED}Failed to download ${RC}$URL${RED}."; exit 1; }
+curl -fsL "$URL" -o "$CONFIG_DIR/config.json" || { printf "%b\n" "${RED}Failed to download ${RC}$URL${RED}."; restore; }
 printf "%b\n" "${GREEN}Done.${RC}"
