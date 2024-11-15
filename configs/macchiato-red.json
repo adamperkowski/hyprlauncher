@@ -1,0 +1,47 @@
+{
+  "anchor": "center",
+  "height": 600,
+  "margin_bottom": 0,
+  "margin_left": 0,
+  "margin_right": 0,
+  "margin_top": 0,
+  "show_descriptions": false,
+  "show_icons": true,
+  "show_paths": true,
+  "show_search": true,
+  "theme": {
+    "colors": {
+      "item_bg": "#24273a",
+      "item_bg_hover": "#1e2030",
+      "item_bg_selected": "#1e2030",
+      "item_description": "#a5adcb",
+      "item_name": "#cad3f5",
+      "item_path": "#6e738d",
+      "search_bg": "#1e2030",
+      "search_bg_focused": "#1e2030",
+      "search_caret": "#ed8796",
+      "search_text": "#cad3f5",
+      "window_bg": "#24273a"
+    },
+    "corners": {
+      "list_item": 8,
+      "search": 8,
+      "window": 12
+    },
+    "spacing": {
+      "item_margin": 6,
+      "item_padding": 4,
+      "search_margin": 12,
+      "search_padding": 12
+    },
+    "typography": {
+      "item_description_size": 12,
+      "item_name_size": 14,
+      "item_path_font_family": "monospace",
+      "item_path_size": 12,
+      "search_font_size": 16
+    }
+  },
+  "vim_keys": true,
+  "width": 600
+}
