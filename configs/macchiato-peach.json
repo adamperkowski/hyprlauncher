@@ -1,14 +1,22 @@
 {
-  "anchor": "center",
-  "height": 600,
-  "margin_bottom": 0,
-  "margin_left": 0,
-  "margin_right": 0,
-  "margin_top": 0,
-  "show_descriptions": false,
-  "show_icons": true,
-  "show_paths": true,
-  "show_search": true,
+  "window": {
+    "width": 600,
+    "height": 600,
+    "anchor": "center",
+    "margin_top": 0,
+    "margin_bottom": 0,
+    "margin_left": 0,
+    "margin_right": 0,
+    "show_descriptions": false,
+    "show_paths": true,
+    "show_icons": true,
+    "show_search": true,
+    "vim_keys": true,
+    "show_border": true,
+    "border_width": 1,
+    "border_color": "#f5a97f",
+    "use_gtk_colors": false
+  },
   "theme": {
     "colors": {
       "item_bg": "#24273a",
@@ -41,7 +49,5 @@
       "item_path_size": 12,
       "search_font_size": 16
     }
-  },
-  "vim_keys": true,
-  "width": 600
+  }
 }
