@@ -1,3 +1,11 @@
+---
+whiskers:
+  version: 2.5.1
+  matrix:
+    - flavor
+    - accent
+  filename: 'configs/{{flavor.identifier}}-{{accent}}.json'
+---
 {
   "anchor": "center",
   "height": 600,
@@ -11,17 +19,17 @@
   "show_search": true,
   "theme": {
     "colors": {
-      "item_bg": "#303446",
-      "item_bg_hover": "#292c3c",
-      "item_bg_selected": "#292c3c",
-      "item_description": "#a5adce",
-      "item_name": "#c6d0f5",
-      "item_path": "#737994",
-      "search_bg": "#292c3c",
-      "search_bg_focused": "#292c3c",
-      "search_caret": "#8caaee",
-      "search_text": "#c6d0f5",
-      "window_bg": "#303446"
+      "item_bg": "#{{base.hex}}",
+      "item_bg_hover": "#{{mantle.hex}}",
+      "item_bg_selected": "#{{mantle.hex}}",
+      "item_description": "#{{subtext0.hex}}",
+      "item_name": "#{{text.hex}}",
+      "item_path": "#{{overlay0.hex}}",
+      "search_bg": "#{{mantle.hex}}",
+      "search_bg_focused": "#{{mantle.hex}}",
+      "search_caret": "#{{flavor.colors[accent].hex}}",
+      "search_text": "#{{text.hex}}",
+      "window_bg": "#{{base.hex}}"
     },
     "corners": {
       "list_item": 8,

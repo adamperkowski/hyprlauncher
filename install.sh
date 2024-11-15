@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 RC='\033[0m'
 RED='\033[31m'
@@ -21,40 +21,44 @@ restore() {
     exit 1
 }
 
-printf "%b" "Chose your preferred flavor:
- ${BLUE}1${RC} | Latte
- ${BLUE}2${RC} | Frappe
- ${BLUE}3${RC} | Macchiato
- ${BLUE}4${RC} | Moccha
-Enter the number of your chosen flavor (${BLUE}1${RC}-${BLUE}4${RC}) | "
+list_options() {
+    i=0
+    for o in "${OPTIONS[@]}"; do
+        i=$((i + 1))
+        if [ $i -lt 10 ]; then
+            ident='  '
+        else
+            ident=' '
+        fi
+        printf "%b\n" "$ident${BLUE}$i${RC} | $o"
+    done
+}
 
-read -r input
-echo
-case $input in
-    1)
-        FLAVOR='latte'
-        ;;
-    2)
-        FLAVOR='frappe'
-        ;;
-    3)
-        FLAVOR='macchiato'
-        ;;
-    4)
-        FLAVOR='mocha'
-        ;;
-    *)
-        printf "%b\n" "${RED}Invalid number:${RC} $input"
+read_input() {
+    read -r input
+    input=$((input - 1))
+    if [ $input -ge ${#OPTIONS[@]} ] || [ $input -lt 0 ]; then
+        printf "%b\n" "${RED}Invalid number:${RC} $((input + 1))"
         exit 1
-        ;;
-esac
+    fi
+}
 
-if [ -z $FLAVOR ]; then
-    printf "%b\n" "${RED}Something went wrong. Try installing the theme manually.${RC}"
-    exit 1
-fi
+printf "%b\n" "Chose your preferred flavor:"
+OPTIONS=('latte' 'frappe' 'macchiato' 'mocha')
+list_options
+printf "%b" "Enter the number of your chosen flavor (${BLUE}1${RC}-${BLUE}4${RC}) | "
+read_input
+FLAVOR=${OPTIONS[$input]}
 
-printf "%b\n" "Flavor chosen: ${BLUE}$FLAVOR${BLUE}"
+printf "%b\n" "\nChose your preferred accent:"
+OPTIONS=('rosewater' 'flamingo' 'pink' 'mauve' 'red' 'maroon' 'peach' 'yellow' 'green' 'teal' 'sky' 'sapphire' 'blue' 'lavender')
+list_options
+printf "%b" "Enter the number of your chosen accent (${BLUE}1${RC}-${BLUE}4${RC}) | "
+read_input
+ACCENT=${OPTIONS[$input]}
+
+printf "%b\n" "\nFlavor chosen: ${BLUE}$FLAVOR${RC}
+Accent chosen: ${BLUE}$ACCENT${RC}\n"
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
     CONFIG_DIR="$HOME/.config/hyprlauncher"
@@ -76,7 +80,7 @@ if [ -f "$CONFIG_DIR/config.json" ]; then
     rm -f "$CONFIG_DIR/config.json" || { printf "%b\n" "${RED}Failed to delete ${RC}$CONFIG_DIR/config.json${RED}.${RC}"; restore; }
 fi
 
-printf "%b\n" "${YELLOW}Downloading ${RC}$FLAVOR.json${YELLOW}...${RC}"
-URL="https://raw.githubusercontent.com/adamperkowski/hyprlauncher/refs/heads/stable/configs/$FLAVOR.json"
+printf "%b\n" "${YELLOW}Downloading ${RC}$FLAVOR-$ACCENT.json${YELLOW}...${RC}"
+URL="https://raw.githubusercontent.com/adamperkowski/hyprlauncher/refs/heads/stable/configs/$FLAVOR-$ACCENT.json"
 curl -fsL "$URL" -o "$CONFIG_DIR/config.json" || { printf "%b\n" "${RED}Failed to download ${RC}$URL${RED}."; restore; }
 printf "%b\n" "${GREEN}Done.${RC}"
