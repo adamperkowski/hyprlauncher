@@ -1,17 +1,17 @@
-name: Whiskers
+name: Whiskers Check
 
 on:
   push:
-    paths: ['hyprlauncher.tera']
+    paths: ['hyprlauncher.tera', 'configs/**', '.github/workflows/whiskers.yml']
   pull_request:
-    paths: ['hyprlauncher.tera']
+    paths: ['hyprlauncher.tera', 'configs/**', '.github/workflows/whiskers.yml']
   workflow_dispatch:
 
 jobs:
-  generate:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+  check:
+    # change to ubuntu-latest after GitHub properly rolls out 24.04 (whiskers v2.5.1 depends on 24.04)
+    # ref: https://github.com/actions/runner-images/issues/10636
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
@@ -24,10 +24,4 @@ jobs:
         with:
           whiskers-version: "2.5.1"
 
-      - run: whiskers hyprlauncher.tera
-
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Update config files (${{ steps.vars.outputs.sha_short }})
-          file_pattern: "configs/*"
-        if: success()
+      - run: whiskers hyprlauncher.tera --check
