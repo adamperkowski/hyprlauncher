@@ -15,7 +15,7 @@ restore() {
     if ! $B_CREATED; then
         printf "%b\n" "${YELLOW}Restoring the old config...${RC}"
         rm -f "$CONFIG_DIR/config.json"
-        mv "$CONFIG_DIR/config.json.old" "$CONFIG_DIR/config.json"
+        mv "$CONFIG_DIR/$B_NAME" "$CONFIG_DIR/config.json"
     fi
     printf "%b\n" "${GREEN}Done.${RC}"
     exit 1
@@ -70,7 +70,8 @@ fi
 
 if [ -f "$CONFIG_DIR/config.json" ]; then
     printf "%b\n" "${YELLOW}Backing up the old config...${RC}"
-    cp "$CONFIG_DIR/config.json" "$CONFIG_DIR/config.json.old" || { printf "%b\n" "${RED}Failed to copy ${RC}$CONFIG_DIR/config.json${RED} to ${RC}$CONFIG_DIR/config.json.old${RED}.${RC}"; restore; }
+    B_NAME="config.json.$(date +%s).old"
+    cp "$CONFIG_DIR/config.json" "$CONFIG_DIR/$B_NAME" || { printf "%b\n" "${RED}Failed to copy ${RC}$CONFIG_DIR/config.json${RED} to ${RC}$CONFIG_DIR/config.json.old${RED}.${RC}"; restore; }
     B_CREATED=false
     rm -f "$CONFIG_DIR/config.json" || { printf "%b\n" "${RED}Failed to delete ${RC}$CONFIG_DIR/config.json${RED}.${RC}"; restore; }
 fi
