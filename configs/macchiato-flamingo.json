@@ -17,6 +17,10 @@
     "border_color": "#f0c6c6",
     "use_gtk_colors": false
   },
+  "debug": {
+    "disable_auto_focus": false,
+    "enable_logging": false
+  },
   "theme": {
     "colors": {
       "item_bg": "#24273a",

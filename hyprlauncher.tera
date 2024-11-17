@@ -25,6 +25,10 @@ whiskers:
     "border_color": "#{{flavor.colors[accent].hex}}",
     "use_gtk_colors": false
   },
+  "debug": {
+    "disable_auto_focus": false,
+    "enable_logging": false
+  },
   "theme": {
     "colors": {
       "item_bg": "#{{base.hex}}",
