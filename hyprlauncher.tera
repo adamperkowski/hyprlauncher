@@ -19,10 +19,14 @@ whiskers:
     "show_paths": true,
     "show_icons": true,
     "show_search": true,
+    "custom_navigate_keys": {
+      "up": "k",
+      "down": "j",
+      "delete_word": "h"
+    },
     "vim_keys": true,
     "show_border": true,
     "border_width": 1,
-    "border_color": "#{{flavor.colors[accent].hex}}",
     "use_gtk_colors": false
   },
   "debug": {
@@ -42,6 +46,7 @@ whiskers:
       "search_caret": "#{{flavor.colors[accent].hex}}",
       "search_text": "#{{text.hex}}",
       "window_bg": "#{{base.hex}}"
+      "border": "#{{flavor.colors[accent].hex}}",
     },
     "corners": {
       "list_item": 8,

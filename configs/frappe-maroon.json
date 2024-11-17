@@ -11,10 +11,14 @@
     "show_paths": true,
     "show_icons": true,
     "show_search": true,
+    "custom_navigate_keys": {
+      "up": "k",
+      "down": "j",
+      "delete_word": "h"
+    },
     "vim_keys": true,
     "show_border": true,
     "border_width": 1,
-    "border_color": "#ea999c",
     "use_gtk_colors": false
   },
   "debug": {
@@ -34,6 +38,7 @@
       "search_caret": "#ea999c",
       "search_text": "#c6d0f5",
       "window_bg": "#303446"
+      "border": "#ea999c",
     },
     "corners": {
       "list_item": 8,
