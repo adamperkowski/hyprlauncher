@@ -31,8 +31,11 @@
       "item_bg_hover": "#e6e9ef",
       "item_bg_selected": "#e6e9ef",
       "item_description": "#6c6f85",
+      "item_description_selected": "#4c4f69",
       "item_name": "#4c4f69",
+      "item_name_selected": "#179299"
       "item_path": "#9ca0b0",
+      "item_path_selected": "#4c4f69",
       "search_bg": "#e6e9ef",
       "search_bg_focused": "#e6e9ef",
       "search_caret": "#179299",

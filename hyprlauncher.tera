@@ -39,8 +39,11 @@ whiskers:
       "item_bg_hover": "#{{mantle.hex}}",
       "item_bg_selected": "#{{mantle.hex}}",
       "item_description": "#{{subtext0.hex}}",
+      "item_description_selected": "#{{text.hex}}",
       "item_name": "#{{text.hex}}",
+      "item_name_selected": "#{{flavor.colors[accent].hex}}"
       "item_path": "#{{overlay0.hex}}",
+      "item_path_selected": "#{{text.hex}}",
       "search_bg": "#{{mantle.hex}}",
       "search_bg_focused": "#{{mantle.hex}}",
       "search_caret": "#{{flavor.colors[accent].hex}}",
