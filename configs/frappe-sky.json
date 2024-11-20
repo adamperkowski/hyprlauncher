@@ -1,39 +1,18 @@
 {
-  "window": {
-    "width": 600,
-    "height": 600,
-    "anchor": "center",
-    "margin_top": 0,
-    "margin_bottom": 0,
-    "margin_left": 0,
-    "margin_right": 0,
-    "show_descriptions": false,
-    "show_paths": true,
-    "show_icons": true,
-    "show_search": true,
-    "custom_navigate_keys": {
-      "up": "k",
-      "down": "j",
-      "delete_word": "h"
-    },
-    "vim_keys": true,
-    "show_border": true,
-    "border_width": 1,
-    "use_gtk_colors": false
-  },
   "debug": {
     "disable_auto_focus": false,
     "enable_logging": false
   },
   "theme": {
     "colors": {
+      "border": "#99d1db",
       "item_bg": "#303446",
       "item_bg_hover": "#292c3c",
       "item_bg_selected": "#292c3c",
       "item_description": "#a5adce",
       "item_description_selected": "#c6d0f5",
       "item_name": "#c6d0f5",
-      "item_name_selected": "#99d1db"
+      "item_name_selected": "#99d1db",
       "item_path": "#737994",
       "item_path_selected": "#c6d0f5",
       "search_bg": "#292c3c",
@@ -41,7 +20,6 @@
       "search_caret": "#99d1db",
       "search_text": "#c6d0f5",
       "window_bg": "#303446"
-      "border": "#99d1db",
     },
     "corners": {
       "list_item": 8,
@@ -61,5 +39,27 @@
       "item_path_size": 12,
       "search_font_size": 16
     }
-  }
+  },
+  "window": {
+    "anchor": "center",
+    "border_width": 1,
+    "custom_navigate_keys": {
+      "delete_word": "h"
+      "down": "j",
+      "up": "k",
+    },
+    "height": 600,
+    "width": 600,
+    "margin_top": 0,
+    "margin_bottom": 0,
+    "margin_left": 0,
+    "margin_right": 0,
+    "max_entries": 50,
+    "show_border": true,
+    "show_descriptions": false,
+    "show_paths": true,
+    "show_icons": true,
+    "show_search": true,
+    "use_gtk_colors": false
+  },
 }

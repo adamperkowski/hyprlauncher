@@ -7,41 +7,20 @@ whiskers:
   filename: 'configs/{{flavor.identifier}}-{{accent}}.json'
 ---
 {
-  "window": {
-    "width": 600,
-    "height": 600,
-    "anchor": "center",
-    "margin_top": 0,
-    "margin_bottom": 0,
-    "margin_left": 0,
-    "margin_right": 0,
-    "show_descriptions": false,
-    "show_paths": true,
-    "show_icons": true,
-    "show_search": true,
-    "custom_navigate_keys": {
-      "up": "k",
-      "down": "j",
-      "delete_word": "h"
-    },
-    "vim_keys": true,
-    "show_border": true,
-    "border_width": 1,
-    "use_gtk_colors": false
-  },
   "debug": {
     "disable_auto_focus": false,
     "enable_logging": false
   },
   "theme": {
     "colors": {
+      "border": "#{{flavor.colors[accent].hex}}",
       "item_bg": "#{{base.hex}}",
       "item_bg_hover": "#{{mantle.hex}}",
       "item_bg_selected": "#{{mantle.hex}}",
       "item_description": "#{{subtext0.hex}}",
       "item_description_selected": "#{{text.hex}}",
       "item_name": "#{{text.hex}}",
-      "item_name_selected": "#{{flavor.colors[accent].hex}}"
+      "item_name_selected": "#{{flavor.colors[accent].hex}}",
       "item_path": "#{{overlay0.hex}}",
       "item_path_selected": "#{{text.hex}}",
       "search_bg": "#{{mantle.hex}}",
@@ -49,7 +28,6 @@ whiskers:
       "search_caret": "#{{flavor.colors[accent].hex}}",
       "search_text": "#{{text.hex}}",
       "window_bg": "#{{base.hex}}"
-      "border": "#{{flavor.colors[accent].hex}}",
     },
     "corners": {
       "list_item": 8,
@@ -69,5 +47,27 @@ whiskers:
       "item_path_size": 12,
       "search_font_size": 16
     }
-  }
+  },
+  "window": {
+    "anchor": "center",
+    "border_width": 1,
+    "custom_navigate_keys": {
+      "delete_word": "h"
+      "down": "j",
+      "up": "k",
+    },
+    "height": 600,
+    "width": 600,
+    "margin_top": 0,
+    "margin_bottom": 0,
+    "margin_left": 0,
+    "margin_right": 0,
+    "max_entries": 50,
+    "show_border": true,
+    "show_descriptions": false,
+    "show_paths": true,
+    "show_icons": true,
+    "show_search": true,
+    "use_gtk_colors": false
+  },
 }
