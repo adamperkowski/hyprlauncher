@@ -44,9 +44,9 @@
     "anchor": "center",
     "border_width": 1,
     "custom_navigate_keys": {
-      "delete_word": "h"
+      "delete_word": "h",
       "down": "j",
-      "up": "k",
+      "up": "k"
     },
     "height": 600,
     "width": 600,
@@ -61,5 +61,5 @@
     "show_icons": true,
     "show_search": true,
     "use_gtk_colors": false
-  },
+  }
 }
