@@ -68,6 +68,29 @@ whiskers:
     "show_paths": true,
     "show_icons": true,
     "show_search": true,
-    "use_gtk_colors": false
+    "show_actions": true,
+    "use_gtk_colors": false,
+    "use_custom_css": false
+  },
+  "finder": {
+    "show_hidden": false
+  },
+  "dmenu": {
+    "allow_invalid": false,
+    "case_sensitive": false
+  },
+  "web_search": {
+    "enabled": true,
+    "engine": "duckduckgo",
+    "prefixes": [
+      {
+        "prefix": "yt",
+        "url": "https://www.youtube.com/results?search_query="
+      },
+      {
+        "prefix": "gh",
+        "url": "https://github.com/search?q="
+      }
+    ]
   }
 }
