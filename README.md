@@ -52,7 +52,7 @@ git clone https://github.com/adamperkowski/hyprlauncher.git -b stable && cd hypr
 2. Copy your preferred flavor into Hyprlauncher's config directory
 ```sh
 mkdir -p ~/.config/hyprlauncher
-cp configs/<flavor>.json ~/.config/hyprlauncher/config.json
+cp configs/<flavor>.toml ~/.config/hyprlauncher/config.toml
 ```
 Replace `<flavor>` with your preferred flavor
 

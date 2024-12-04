@@ -1,11 +1,3 @@
----
-whiskers:
-  version: 2.5.1
-  matrix:
-    - flavor
-    - accent
-  filename: 'configs/{{flavor.identifier}}-{{accent}}.toml'
----
 [window]
 width = 600
 height = 600
@@ -31,21 +23,21 @@ down = "j"
 delete_word = "h"
 
 [theme.colors]
-border = "#{{flavor.colors[accent].hex}}"
-window_bg = "#{{base.hex}}"
-search_bg = "#{{mantle.hex}}"
-search_bg_focused = "#{{mantle.hex}}"
-item_bg = "#{{base.hex}}"
-item_bg_hover = "#{{mantle.hex}}"
-item_bg_selected = "#{{mantle.hex}}"
-search_text = "#{{text.hex}}"
-search_caret = "#{{flavor.colors[accent].hex}}"
-item_name = "#{{text.hex}}"
-item_name_selected = "#{{flavor.colors[accent].hex}}"
-item_description = "#{{subtext0.hex}}"
-item_description_selected = "#{{text.hex}}"
-item_path = "#{{overlay0.hex}}"
-item_path_selected = "#{{text.hex}}"
+border = "#8caaee"
+window_bg = "#303446"
+search_bg = "#292c3c"
+search_bg_focused = "#292c3c"
+item_bg = "#303446"
+item_bg_hover = "#292c3c"
+item_bg_selected = "#292c3c"
+search_text = "#c6d0f5"
+search_caret = "#8caaee"
+item_name = "#c6d0f5"
+item_name_selected = "#8caaee"
+item_description = "#a5adce"
+item_description_selected = "#c6d0f5"
+item_path = "#737994"
+item_path_selected = "#c6d0f5"
 
 [theme.corners]
 window = 12

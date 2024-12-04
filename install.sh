@@ -14,8 +14,8 @@ restore() {
     fi
     if ! $B_CREATED; then
         printf "%b\n" "${YELLOW}Restoring the old config...${RC}"
-        rm -f "$CONFIG_DIR/config.json"
-        mv "$CONFIG_DIR/$B_NAME" "$CONFIG_DIR/config.json"
+        rm -f "$CONFIG_DIR/config.toml"
+        mv "$CONFIG_DIR/$B_NAME" "$CONFIG_DIR/config.toml"
     fi
     printf "%b\n" "${GREEN}Done.${RC}"
     exit 1
@@ -72,15 +72,15 @@ if [ ! -d "$CONFIG_DIR" ]; then
     CREATED=false
 fi
 
-if [ -f "$CONFIG_DIR/config.json" ]; then
+if [ -f "$CONFIG_DIR/config.toml" ]; then
     printf "%b\n" "${YELLOW}Backing up the old config...${RC}"
-    B_NAME="config.json.$(date +%s).old"
-    cp "$CONFIG_DIR/config.json" "$CONFIG_DIR/$B_NAME" || { printf "%b\n" "${RED}Failed to copy ${RC}$CONFIG_DIR/config.json${RED} to ${RC}$CONFIG_DIR/config.json.old${RED}.${RC}"; restore; }
+    B_NAME="config.toml.$(date +%s).old"
+    cp "$CONFIG_DIR/config.toml" "$CONFIG_DIR/$B_NAME" || { printf "%b\n" "${RED}Failed to copy ${RC}$CONFIG_DIR/config.toml${RED} to ${RC}$CONFIG_DIR/config.toml.old${RED}.${RC}"; restore; }
     B_CREATED=false
-    rm -f "$CONFIG_DIR/config.json" || { printf "%b\n" "${RED}Failed to delete ${RC}$CONFIG_DIR/config.json${RED}.${RC}"; restore; }
+    rm -f "$CONFIG_DIR/config.toml" || { printf "%b\n" "${RED}Failed to delete ${RC}$CONFIG_DIR/config.toml${RED}.${RC}"; restore; }
 fi
 
-printf "%b\n" "${YELLOW}Downloading ${RC}$FLAVOR-$ACCENT.json${YELLOW}...${RC}"
-URL="https://raw.githubusercontent.com/adamperkowski/hyprlauncher/refs/heads/stable/configs/$FLAVOR-$ACCENT.json"
-curl -fsL "$URL" -o "$CONFIG_DIR/config.json" || { printf "%b\n" "${RED}Failed to download ${RC}$URL${RED}."; restore; }
+printf "%b\n" "${YELLOW}Downloading ${RC}$FLAVOR-$ACCENT.toml${YELLOW}...${RC}"
+URL="https://raw.githubusercontent.com/adamperkowski/hyprlauncher/refs/heads/stable/configs/$FLAVOR-$ACCENT.toml"
+curl -fsL "$URL" -o "$CONFIG_DIR/config.toml" || { printf "%b\n" "${RED}Failed to download ${RC}$URL${RED}."; restore; }
 printf "%b\n" "${GREEN}Done.${RC}"
